@@ -19,7 +19,7 @@ return new class extends Migration
             $table->bigInteger('mobile');
             $table->bigInteger('alternative_mobile');
             $table->date('dob')->nullable();
-            $table->unsignedBigInteger('lead_source_id');
+            $table->unsignedBigInteger('lead_source_id')->default(1);
             $table->string('location')->nullable();
             $table->boolean('isActive')->default(1);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

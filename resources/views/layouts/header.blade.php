@@ -582,15 +582,31 @@
           </ul>
         </div>
         <div class="user-box dropdown">
-          <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret"
+          {{--  <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret"
             class="d-flex align-items-center nav-link "
             href="#"
             type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-          >
+          >  --}}
             <img src="assets/images/avatars/avatar-2.png" class="user-img" alt="user avatar">
             <div class="user-info ps-3">
-              <p class="user-name mb-0">Pauline Seitz</p>
-              <p class="designattion mb-0">Web Designer</p>
+                @auth
+                <p class="user-name mb-0">   {{ Auth::user()->name }}</p>
+                <p class="designattion mb-0"></p>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <!-- Add user-related dropdown menu items here -->
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                     {{ __('Logout') }}
+                 </a>
+
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </div>
+                @endauth
+
+
             </div>
           </a>
           <!-- <ul class="dropdown-menu dropdown-menu-end">

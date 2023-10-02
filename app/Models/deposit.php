@@ -15,8 +15,8 @@ class deposit extends Model
     protected $fillable=[
 
         'user_id',
-        'platform',
-        'utr_detail',
+        'platform_id',
+        'utr',
         'deposit_amount',
         'bonus',
         'total_deposit_amount',

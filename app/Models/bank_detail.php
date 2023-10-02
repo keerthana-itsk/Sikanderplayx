@@ -20,7 +20,7 @@ class bank_detail extends Model
         'account_number',
         'ifsc_code',
         'bank_name',
-        'bank',
+        // 'bank',
         'created_by',
         'updated_by',
 

@@ -14,15 +14,15 @@ return new class extends Migration
         Schema::create('bank_details', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('account_name');
+            $table->string('account_name')->nullable();
             $table->string('account_number', 20)->unique();
             $table->string('ifsc_code');
             $table->string('bank_name');
-            $table->boolean('bank')->default(1);
+            // $table->boolean('bank')->default('Unknown');
             $table->unsignedBigInteger('created_by')->nullable();
             $table->unsignedBigInteger('updated_by')->nullable();
             $table->softDeletes();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('user_registrations')->onDelete('cascade');
             $table->timestamps();
         });
     }

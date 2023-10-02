@@ -27,6 +27,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[LoginController::class,'login'])->name('login');
 Route::post('post-login', [LoginController::class, 'postLogin'])->name('login.post');
 Route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard');
+Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 // End login
 
 

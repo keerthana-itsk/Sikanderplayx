@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('deposit_amount');
             $table->string('bonus');
             $table->string('total_deposit_amount');
-            $table->string('image');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('image')->nullable();
+            $table->foreign('user_id')->references('id')->on('user_registrations')->onDelete('cascade');
             $table->foreign('platform_id')->references('id')->on('plat_forms')->onDelete('cascade');
             $table->unsignedBigInteger('created_by')->nullable();
             $table->unsignedBigInteger('updated_by')->nullable();
